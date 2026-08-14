@@ -1,10 +1,8 @@
 #!/bin/sh
 set -o errexit
 
-# Creates a kind cluster that ENFORCES NetworkPolicy (default kind CNI, kindnet,
-# does not), wired to a local registry — suitable for the troubleshooting variant
-# in kubernetes-manifests-variant.yaml (whose NetworkPolicy problem is otherwise
-# a silent no-op on a stock kind cluster).
+# Creates a kind cluster that ENFORCES NetworkPolicy (the default kind CNI,
+# kindnet, does not), wired to a local registry.
 #
 # Based on the kind local-registry example, with the default CNI disabled and Calico installed.
 

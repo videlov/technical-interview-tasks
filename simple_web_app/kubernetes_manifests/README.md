@@ -16,7 +16,7 @@
    **minikube:**
 
    ```bash
-   ./minikube-start.sh
+   ./minikube-with-calico.sh
    ```
 
 3. Build and load the Docker image for the Go app from `simple_web_app_go/`:
@@ -45,22 +45,22 @@
 - `kubernetes-manifests-working.yaml` — a clean Deployment + Service that deploys
   and runs as-is (no `NetworkPolicy`, so it works on any cluster). Use this to get
   the workload up quickly.
-- `kubernetes-manifests-variant.yaml` — troubleshooting exercise (kind).
-- `kubernetes-manifests-variant-minikube.yaml` — troubleshooting exercise (minikube).
+- `kubernetes-manifests-troubleshoot-kind.yaml` — troubleshooting exercise (kind).
+- `kubernetes-manifests-troubleshoot-minikube.yaml` — troubleshooting exercise (minikube).
 
-## Troubleshooting variant
+## Troubleshooting exercise
 
-The `kubernetes-manifests-variant*.yaml` files are alternative deployments used
-for the troubleshooting exercise. They run the same application; the goal is to
-get the workload running and healthy.
+The `kubernetes-manifests-troubleshoot-*.yaml` files are alternative deployments
+used for the troubleshooting exercise. They run the same application; the goal is
+to get the workload running and healthy.
 
 Follow the steps above to create the cluster and load the image, then deploy the
-variant for your tool:
+manifest for your tool:
 
 ```bash
 # kind
-kubectl apply -f kubernetes-manifests-variant.yaml
+kubectl apply -f kubernetes-manifests-troubleshoot-kind.yaml
 
 # minikube
-kubectl apply -f kubernetes-manifests-variant-minikube.yaml
+kubectl apply -f kubernetes-manifests-troubleshoot-minikube.yaml
 ```
