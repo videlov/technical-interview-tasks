@@ -6,7 +6,7 @@ set -o errexit
 # in kubernetes-manifests-variant.yaml (whose NetworkPolicy problem is otherwise
 # a silent no-op on a stock kind cluster).
 #
-# Based on kind-with-registry.sh, with the default CNI disabled and Calico installed.
+# Based on the kind local-registry example, with the default CNI disabled and Calico installed.
 
 reg_name='kind-registry'
 reg_port='5001'
