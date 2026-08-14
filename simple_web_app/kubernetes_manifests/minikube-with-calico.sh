@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 set -o errexit
 
 # Creates a minikube cluster that ENFORCES NetworkPolicy. minikube's default CNI

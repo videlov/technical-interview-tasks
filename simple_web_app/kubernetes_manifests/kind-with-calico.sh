@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 set -o errexit
 
 # Creates a kind cluster that ENFORCES NetworkPolicy (the default kind CNI,
