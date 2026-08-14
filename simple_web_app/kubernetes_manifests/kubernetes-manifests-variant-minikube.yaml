@@ -70,19 +70,31 @@ spec:
               port: http
           resources: {}
 ---
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: homepage-tester
+  labels:
+    app.kubernetes.io/name: homepage-tester
+    app.kubernetes.io/instance: homepage-tester
 spec:
-  containers:
-  - name: tester
-    image: appropriate/curl
-    command: ["/bin/sh", "-c"]
-    args:
-    - |
-      while true; do
-        curl -m 1 -sSf http://simple-web-app:8080/hello-world || exit 1;
-        sleep 10;
-      done
-  restartPolicy: Always
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: homepage-tester
+      app.kubernetes.io/instance: homepage-tester
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: homepage-tester
+        app.kubernetes.io/instance: homepage-tester
+    spec:
+      containers:
+      - name: tester
+        image: appropriate/curl
+        command: ["/bin/sh", "-c"]
+        args:
+        - |
+          while true; do
+            curl -m 1 -sSf http://simple-web-app:8080/hello-world || exit 1;
+            sleep 10;
+          done
