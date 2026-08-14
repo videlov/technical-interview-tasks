@@ -35,4 +35,9 @@ cluster. Use the provided script to create a cluster with a policy-enforcing CNI
 ./kind-with-calico.sh
 ```
 
-Then build/load the image and deploy `kubernetes-manifests-variant.yaml`.
+Then build/load the image and deploy `kubernetes-manifests-variant.yaml`. For the
+Go app you can build and load the image in one step from `simple_web_app_go/`:
+
+```bash
+make kind-load
+```
